@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
   <title>Redditish</title>
 </head>
-<body>
+<body ng-controller="PostController as postCtrl">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -29,7 +29,7 @@
       <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
 
         <ul class="nav navbar-nav">
-          <li><a href ng-click="gotForm = !gotForm">Submit Post</a></li>
+          <li><a href ng-click="gotForm = !gotForm"><span class="glyphicon glyphicon-plus"></span> Submit Post</a></li>
         </ul>
 
         <form class="navbar-form navbar-left" role="search">
@@ -69,28 +69,47 @@
           <input type="text" class="form-control" id="imageurl" placeholder="Image URL">
         </div>
         <div class="form-group">
-          <label for="imgurl">Description</label>
-          <input type="text" class="form-control" id="description" placeholder="Description">
+          <label for="description">Description</label>
+          <textarea class="form-control" id="description" placeholder="Description" rows="3"></textarea>
         </div>
-        <input type="submit" value="Submit" class="btn btn-primary"></input>
+        <input type="submit" value="Submit" class="btn btn-default"></input>
       </form>
     </div>
   </div>
 
-
   <main>
     <div class="container-fluid">
+
       <div class="panel panel-default">
         <div class="panel-heading">
-          <img src="" alt="" />
-          <h4>Title</h5>
-          <h4 class="glyphicon glyphicon-arrow-up"></h4>
-          <h4 class="glyphicon glyphicon-arrow-down"></h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique architecto repellendus dicta inventore deleniti reiciendis quis explicabo odit perspiciatis, error voluptates voluptatum cupiditate, molestiae sit! Quaerat, a vel deserunt vero!</p>
-          <p>Date | comments | Add Comment</p>
-
+          <div>
+            <img class="img-rounded" src="http://fillmurray.com/200/200" alt="" height="200" width="200" />
+          </div>
+          <div>
+            <h4>Title |
+              <a href=""><span class="glyphicon glyphicon-arrow-up"></span></a>
+              <a href=""><span class="glyphicon glyphicon-arrow-down"></span></a>
+              <span>100</span>
+            </h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique architecto repellendus dicta inventore deleniti reiciendis quis explicabo odit perspiciatis, error voluptates voluptatum cupiditate, molestiae sit! Quaerat, a vel deserunt vero!</p>
+            <p>Date | comments | Add Comment</p>
+          </div>
         </div>
       </div>
+
+    <div class="panel panel-default" ng-repeat="post in postCtrl.posts">
+      <div class="panel-heading">
+          <img class="img-rounded" ng-src="{{post.imageurl}}" alt="" height="200" width="200" />
+          <h4>{{post.title}} |
+            <a href=""><span class="glyphicon glyphicon-arrow-up"></span></a>
+            <a href=""><span class="glyphicon glyphicon-arrow-down"></span></a>
+            <span ng-class="[{postive: post.votes > 0, negative: post.votes < 0}]">{{post.votes}}</span>
+          </h4>
+          <p>{{post.description}}</p>
+          <p>Date | comments | Add Comment</p>
+        </div>
+    </div>
+
     </div>
   </main>
 

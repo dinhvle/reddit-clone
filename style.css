@@ -1,3 +1,9 @@
 .add-post{
   padding-bottom: 30px;
 }
+
+.postive {
+  color: green;
+}
+.negative {
+  color: red;

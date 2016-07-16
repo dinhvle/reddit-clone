@@ -30,31 +30,46 @@
   });
 
   var pokemons = [{
-      title: "Ivysaur",
-      author: "Ash",
-      imageurl: "http://assets.pokemon.com/assets/cms2/img/pokedex/full/002.png" ,
-      description: "There is a bud on this Pokémon's back. To support its weight, Ivysaur's legs and trunk grow thick and strong. If it starts spending more time lying in the sunlight, it's a sign that the bud will bloom into a large flower soon.",
-      comments: [{
-        author: "TeamValor",
-        text: "We only like red pokemons!"
+        title: "Ivysaur",
+        author: "Ash",
+        imageurl: "http://assets.pokemon.com/assets/cms2/img/pokedex/full/002.png",
+        votes: 10,
+        description: "There is a bud on this Pokémon's back. To support its weight, Ivysaur's legs and trunk grow thick and strong. If it starts spending more time lying in the sunlight, it's a sign that the bud will bloom into a large flower soon.",
+        comments: [{
+          author: "Team Valor",
+          text: "We only like red pokemons!"
+        }, {
+          author: "Team Instinct",
+          text: "We love it!"
+        }],
+        createOn: 1397490980837
       }, {
-        author: "TeamCool",
-        text: "We love it!"
-      }],
-      createOn: 1397490980837
-    }, {
-      title: "Metapod",
-      author: "Rock",
-      imageurl: "http://assets.pokemon.com/assets/cms2/img/pokedex/full/011.png" ,
-      description: "The shell covering this Pokémon's body is as hard as an iron slab. Metapod does not move very much. It stays still because it is preparing its soft innards for evolution inside the hard shell.",
-      comments: [{
-        author: "TeamValor",
-        text: "Eww it's a bug!"
+        title: "Charmander",
+        author: "Missy",
+        imageurl: "http://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png",
+        votes: 0,
+        description: "The flame that burns at the tip of its tail is an indication of its emotions. The flame wavers when Charmander is enjoying itself. If the Pokémon becomes enraged, the flame burns fiercely.",
+        comments: [{
+          author: "Team Valor",
+          text: "First!"
+        }, {
+          author: "Team Mystic",
+          text: "Get out of here!"
+        }],
+        createOn: 1397490980837
       }, {
-        author: "TeamCool",
-        text: "We like it!"
-      }],
-      createOn: 1397490980837
-    }];
-
+        title: "Metapod",
+        author: "Rock",
+        imageurl: "http://assets.pokemon.com/assets/cms2/img/pokedex/full/011.png",
+        votes: -10,
+        description: "The shell covering this Pokémon's body is as hard as an iron slab. Metapod does not move very much. It stays still because it is preparing its soft innards for evolution inside the hard shell.",
+        comments: [{
+          author: "Team Instinct",
+          text: "Eww it's a bug!"
+        }, {
+          author: "Team Mystic",
+          text: "We like it!"
+        }],
+        createOn: 1397490980837
+      }];
 })();
