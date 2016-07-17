@@ -1,10 +1,17 @@
-.add-post {
-  padding-bottom: 30px;
+li {
+  list-style-type:none;
+}
+ul {
+  padding: 0px;
 }
 
 div img {
    display:block;
    margin:auto;
+}
+
+.add-post {
+  padding-bottom: 30px;
 }
 
 .postive {

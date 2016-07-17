@@ -13,7 +13,16 @@
     this.downVote = function(post) {
       post.votes -= 1;
     }
-  })
+  });
+
+  app.controller('CommentController', function() {
+    this.comment = {};
+
+    this.addComment = function(post) {
+      post.comments.push(this.comment);
+      this.comment = {};
+    };
+  });
 
   app.controller('DropdownCtrl', function($scope, $log) {
     $scope.status = {
@@ -49,7 +58,7 @@
         createdOn: 1377490980837
       }, {
         title: "Charmander",
-        author: "Missy",
+        author: "Misty",
         imageurl: "http://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png",
         votes: 0,
         description: "The flame that burns at the tip of its tail is an indication of its emotions. The flame wavers when Charmander is enjoying itself. If the Pokémon becomes enraged, the flame burns fiercely.",
@@ -63,16 +72,13 @@
         createdOn: 1387490980837
       }, {
         title: "Metapod",
-        author: "Rock",
+        author: "Brock",
         imageurl: "http://assets.pokemon.com/assets/cms2/img/pokedex/full/011.png",
         votes: -10,
         description: "The shell covering this Pokémon's body is as hard as an iron slab. Metapod does not move very much. It stays still because it is preparing its soft innards for evolution inside the hard shell.",
         comments: [{
           author: "Team Instinct",
           text: "Eww it's a bug!"
-        }, {
-          author: "Team Mystic",
-          text: "We like it!"
         }],
         createdOn: 1397490980837
       }];
