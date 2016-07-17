@@ -1,5 +1,10 @@
-.add-post{
+.add-post {
   padding-bottom: 30px;
+}
+
+div img {
+   display:block;
+   margin:auto;
 }
 
 .postive {

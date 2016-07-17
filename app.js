@@ -3,15 +3,19 @@
 
   app.controller('PostController', function() {
     this.posts = pokemons;
+  });
+
+  app.controller('VoteController', function() {
+    this.upVote = function(post) {
+      post.votes += 1;
+    }
+
+    this.downVote = function(post) {
+      post.votes -= 1;
+    }
   })
 
   app.controller('DropdownCtrl', function($scope, $log) {
-    $scope.items = [
-      'Votes',
-      'Date',
-      'Title'
-    ];
-
     $scope.status = {
       isopen: false
     };
@@ -42,7 +46,7 @@
           author: "Team Instinct",
           text: "We love it!"
         }],
-        createOn: 1397490980837
+        createdOn: 1397490980837
       }, {
         title: "Charmander",
         author: "Missy",
@@ -56,7 +60,7 @@
           author: "Team Mystic",
           text: "Get out of here!"
         }],
-        createOn: 1397490980837
+        createdOn: 1397490980837
       }, {
         title: "Metapod",
         author: "Rock",
@@ -70,6 +74,6 @@
           author: "Team Mystic",
           text: "We like it!"
         }],
-        createOn: 1397490980837
+        createdOn: 1397490980837
       }];
 })();
