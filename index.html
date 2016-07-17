@@ -34,17 +34,17 @@
 
         <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
+            <input class="form-control" ng-model="search" type="text" placeholder="Search">
           </div>
         </form>
 
         <ul class="nav navbar-nav">
-          <li class="dropdown" uib-dropdown keyboard-nav>
-            <a href="#" class="dropdown-toggle" uib-dropdown-toggle data data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort By <span class="caret"></span></a>
+          <li class="dropdown" ng-init="sort='votes'" uib-dropdown keyboard-nav>
+            <a href="#" class="dropdown-toggle" uib-dropdown-toggle data data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sort by {{sort}} <span class="caret"></span></a>
             <ul class="dropdown-menu" uib-dropdown-menu>
-              <li><a href="#">Votes</a></li>
-              <li><a href="#">Date</a></li>
-              <li><a href="#">Title</a></li>
+              <li><a href ng-click="sort = 'votes'">Votes</a></li>
+              <li><a href ng-click="sort = 'date'">Date</a></li>
+              <li><a href ng-click="sort = 'title'">Title</a></li>
             </ul>
           </li>
         </ul>
@@ -105,7 +105,7 @@
       </div>
     </div> -->
 
-    <div class="panel panel-default" ng-repeat="post in postCtrl.posts">
+    <div class="panel panel-default" ng-repeat="post in postCtrl.posts | filter:search | orderBy:sort: sort === 'title' ? false : true" >
       <div class="panel-heading">
         <div class="row">
           <div class="col-md-3">
@@ -121,8 +121,8 @@
             <p class="text-right"><cite>—{{post.author}}</cite></p>
             <p>
               <span class="glyphicon glyphicon-calendar"></span> Date {{post.createdOn | date: 'shortDate'}} |
-              <span class="glyphicon glyphicon-comment"></span> comments |
-              <span class="glyphicon glyphicon-pencil"></span> Add Comment
+              <a href=""><span class="glyphicon glyphicon-comment"></span> comments</a> |
+              <a href=""><span class="glyphicon glyphicon-pencil"></span> Add Comment</a>
             </p>
           </div>
         </div>
