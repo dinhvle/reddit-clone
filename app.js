@@ -3,6 +3,14 @@
 
   app.controller('PostController', function() {
     this.posts = pokemons;
+    this.post = {};
+    this.addPost = function() {
+      this.post.createdOn = Date.now();
+      this.post.votes = 0;
+      this.post.comments = [];
+      this.posts.push(this.post);
+      this.post = {};
+    };
   });
 
   app.controller('VoteController', function() {
