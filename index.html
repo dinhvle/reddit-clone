@@ -54,7 +54,8 @@
   </nav>
 
   <!-- Submit post form container -->
-  <div class="add-post" ng-show="gotForm">
+
+  <div class="add-post" uib-collapse="!gotForm">
     <div class="container-fluid">
       <form name="postForm" ng-submit="postForm.$valid && postCtrl.addPost(); postForm.$valid && (gotForm = !gotForm)" novalidate>
         <div class="form-group">
